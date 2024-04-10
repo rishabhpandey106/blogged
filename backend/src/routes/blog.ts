@@ -23,7 +23,7 @@ blogRoute.use('/*' , async (c, next) => {
         return c.json({ error: "Unauthorized" });
       }
     
-    const token = header?.split(" ")[1];
+    const token = header
   
     const auth = await verify(token , c.env?.JWT_SECRET)
   
@@ -45,7 +45,19 @@ blogRoute.get('/bulk', async (c) => {
       }).$extends(withAccelerate())
 
     try {
-        const blogs = await prisma.post.findMany();
+        const blogs = await prisma.post.findMany({
+          select: {
+            content: true,
+            id: true,
+            title: true,
+            published: true,
+            author: {
+              select: {
+                name: true
+              }
+            }
+          }
+        });
 
         return c.json({message: "Fetched the blogs" , data: blogs},{status: 200});
     } catch (error:any) {
@@ -63,6 +75,16 @@ blogRoute.get('/:id', async (c) => {
         const blog = await prisma.post.findFirst({
             where: {
                 id: id
+            },
+            select: {
+              id: true,
+              title: true,
+              content: true,
+              author: {
+                select: {
+                  name: true
+                }
+              }
             }
         })
 
