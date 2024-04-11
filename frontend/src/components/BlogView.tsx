@@ -15,12 +15,12 @@ export const BlogView = ({blog}:{blog:Blog}) => {
                     <div className="pt-2 text-sm font-thin text-slate-500 underline">
                         Posted on 1 April 2024
                     </div>
-                    <div className=" pt-2 text-xl text-slate-600">
+                    <div className="pt-2 text-xl text-slate-600 text-justify">
                         {blog.content}
                     </div>
                 </div>
                 <div className="col-span-4">
-                    <div className="flex font-semibold">
+                    <div className="flex justify-center font-semibold bg-orange-100 border border-orange-500 mb-2">
                         Blog ID : <div className="flex justify-center flex-col pl-1 font-thin">{blog.id}</div> 
                     </div>
                     <div className="flex">

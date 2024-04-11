@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import LOGO from "../assets/logo.jpg"
 
 export const AppBar = () => {
     const navigate = useNavigate()
@@ -6,9 +7,11 @@ export const AppBar = () => {
         navigate("/publish")
     }
 
-    return <div className="border-b flex justify-between px-20 py-3">
+    return <div className="border-y-2 bg-white flex justify-between px-20 py-3 border-orange-600">
         <div className="flex flex-col justify-center cursor-pointer"> 
-        <Link to={"/blogs"}><p className="text-2xl font-bold">Blogged</p></Link>
+        <Link to={"/blogs"}>
+            <img src={LOGO} alt="logo" />
+        </Link>
         </div>
         <div className="flex">
             <div className="flex justify-center flex-col pr-2">
