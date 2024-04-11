@@ -1,5 +1,5 @@
 import { SigninInput } from '@rishabhpandey106/blog-common';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { DOMAIN } from '../config';
 import axios from 'axios';
