@@ -1,1 +1,1 @@
-export const DOMAIN = "http://127.0.0.1:8787"
+export const DOMAIN = "https://backend.herokanon39.workers.dev"
